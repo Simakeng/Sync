@@ -1,6 +1,6 @@
 # Sync - 远程文件实时同步工具
 
-[English](README.md)
+[English](README.MD)
 
 这是一个远程文件同步工具。这个工具可以让多个客户端的文件保持实时同步(取决于网速)。
 
