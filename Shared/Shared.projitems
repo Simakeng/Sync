@@ -9,9 +9,10 @@
     <Import_RootNamespace>Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Cryptography\CRC32.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\Network\Packet.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\Network\SocketHost.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Common\Protocal\Commands.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Protocal\Common.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\Protocal\PacketType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\Protocal\Protocal.cs" />
   </ItemGroup>
