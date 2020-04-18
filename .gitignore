@@ -1,0 +1,9 @@
+# .vs directories
+/**/.vs/
+
+# obj directories
+/**/obj/
+
+# binary files
+/**/bin/Debug/
+/**/bin/Release/
