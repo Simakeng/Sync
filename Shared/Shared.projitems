@@ -14,5 +14,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Common\Network\Packet.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\Network\SocketHost.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\Protocal\Common.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Protocal\DataStructure.cs" />
   </ItemGroup>
 </Project>

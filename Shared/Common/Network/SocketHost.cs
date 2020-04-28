@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 using System.Net;
 using System.Net.Sockets;
@@ -9,16 +7,16 @@ using System.Threading;
 
 namespace Sync.Common.Network
 {
-    class SocketHost
+    internal class SocketHost
     {
-        Socket server;
+        private Socket server;
 
-        bool _stop = false;
-        Thread hostThread;
+        private bool _stop = false;
+        private Thread hostThread;
 
-        public SocketHost(string host,int port,int maxcon) 
+        public SocketHost(string host, int port, int maxcon)
         {
-            server = new Socket(SocketType.Stream,ProtocolType.Tcp);
+            server = new Socket(SocketType.Stream, ProtocolType.Tcp);
             server.Bind(new IPEndPoint(IPAddress.Parse(host), port));
             server.Listen(maxcon);
 
@@ -31,18 +29,18 @@ namespace Sync.Common.Network
                         if (ConnectionEnstablished != null)
                         {
                             var client = server.Accept();
-                            Thread clientThread = new Thread(() => 
-                            { 
+                            Thread clientThread = new Thread(() =>
+                            {
                                 ConnectionEnstablished.Invoke(client);
                                 if (client.Connected)
                                     client.Close();
                             });
                             clientThread.Start();
                         }
-                        Thread.Sleep(0);   
+                        Thread.Sleep(0);
                     }
                 }
-                catch 
+                catch
                 {
                     this._stop = true;
                     throw;
@@ -51,7 +49,7 @@ namespace Sync.Common.Network
             hostThread.Start();
         }
 
-        public void Stop() 
+        public void Stop()
         {
             _stop = true;
             if (hostThread.IsAlive)

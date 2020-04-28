@@ -1,4 +1,5 @@
-﻿using Sync.Common.Network;
+﻿using System;
+using Sync.Common.Network;
 using System.Net.Sockets;
 using System.Collections.Generic;
 using System.Threading;
@@ -20,21 +21,31 @@ namespace Sync
                     NewClientConnected(this, s);
             };
         }
+        private static void CheckClientVersion(Socket s) 
+        {
+            
+        };
+        private static void NewClientConnected(SyncHost host, Socket sclient) 
+        {
+            host.clients.Add(sclient);
+            try
+            {
+                CheckClientVersion(sclient);
+            }
+            catch (Exception)
+            {
+                host.clients.Remove(sclient);
+                sclient.Close();
+                throw;
+            }
+            
 
+
+        }
         public void Deamon() 
         {
             while (!Stoped)
-                Thread.Sleep(0);
-        }
-
-        static private void NewClientConnected(SyncHost host, Socket sclient) 
-        {
-            host.clients.Add(sclient);
-
-
-
-            host.clients.Remove(sclient);
-            sclient.Close();
+                Thread.Sleep(1);
         }
     }
 }

@@ -6,6 +6,8 @@ namespace Sync.Common.Protocal
 {
     enum Command
     {
+        Connection,
+        Authorization,
         QueryDirectoryInfo,
         QueryFileInfo,
         QueryDirectoryStructure,
@@ -34,4 +36,6 @@ namespace Sync.Common.Protocal
         Info = 3,
         Data = 4,
     }
+
+
 }

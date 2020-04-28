@@ -9,22 +9,9 @@ namespace Sync
     {
         static void Main(string[] args)
         {
-            CRC32 crc = new CRC32();
-            crc.Compute("nmsl");
+            SyncHost host = new SyncHost("0.0.0.0", 8686, 10, 10);
 
-            Console.WriteLine(crc.ToString());
-            SocketHost host = new SocketHost("0.0.0.0", 8686, 10);
-
-            host.ConnectionEnstablished += (Socket client) =>
-            {
-                Console.WriteLine("From : " + client.RemoteEndPoint.ToString());
-            };
-
-            while (!host.Stoped)
-            {
-                Thread.Sleep(1);
-            }
-            
+            host.Deamon();
         }
     }
 }
