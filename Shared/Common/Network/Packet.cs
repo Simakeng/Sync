@@ -102,5 +102,7 @@ namespace Sync.Common.Network
         { 
             packetType = PacketType.Info; 
         }
+        public Info info { get; set; }
+        
     }
 }

@@ -63,7 +63,7 @@ namespace Sync.Common.Cryptography
                 Compute(bytes);
                 return;
             }
-            throw new TypeAccessException("BitConverter Don't have GetBytes Instance that recive parameter with type " + typeof(T).FullName);
+            throw new Exception("BitConverter Don't have GetBytes Instance that recive parameter with type " + typeof(T).FullName);
             
         }
 
